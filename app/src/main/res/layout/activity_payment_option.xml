@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="2"
+    android:paddingTop="@dimen/dimen_20"
+    android:paddingStart="@dimen/dimen_8"
+    android:paddingEnd="@dimen/dimen_8"
+    android:baselineAligned="false">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:baselineAligned="false">
+
+        <RelativeLayout
+            android:id="@+id/payment_credit_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/payment_card_background"
+                android:contentDescription="@string/app_name"/>
+
+            <ImageView
+                android:id="@+id/payment_option_credit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_30"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/credit_card"
+                android:contentDescription="@string/app_name"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="@string/credit_card"
+                android:textColor="@color/blackText"
+                android:layout_below="@id/payment_option_credit"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:baselineAligned="false">
+
+        <RelativeLayout
+            android:id="@+id/payment_online_banking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/payment_card_background"
+                android:contentDescription="@string/app_name"/>
+
+            <ImageView
+                android:id="@+id/payment_option_online"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_30"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/online_banking"
+                android:contentDescription="@string/app_name"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="@string/onilne_banking"
+                android:textColor="@color/blackText"
+                android:layout_below="@id/payment_option_online"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>

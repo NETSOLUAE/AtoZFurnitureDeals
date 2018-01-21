@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--Changing Label Style-->
+    <!--fab:menu_labels_style="@style/MenuLabelsStyle"-->
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/material_design_android_floating_action_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:menu_animationDelayPerItem="55"
+        fab:menu_backgroundColor="@android:color/transparent"
+        fab:menu_buttonSpacing="0dp"
+        fab:menu_colorNormal="@color/colorPrimary"
+        fab:menu_colorPressed="@color/colorPrimary"
+        fab:menu_colorRipple="#99d4d4d4"
+        fab:menu_icon="@drawable/fab_add"
+        fab:menu_fab_size="mini"
+        fab:menu_openDirection="up"
+        fab:menu_shadowColor="#22000000"
+        fab:menu_shadowRadius="2dp"
+        fab:menu_shadowXOffset="1dp"
+        fab:menu_shadowYOffset="2dp"
+        fab:menu_showShadow="true"
+        fab:menu_labels_style="@style/MenuLabelsStyle">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/floating_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/call"
+            fab:fab_colorNormal="@color/cart"
+            fab:fab_colorPressed="@color/cart"
+            app:fab_label="Call"
+            fab:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/floating_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/chat"
+            fab:fab_colorNormal="@color/cart"
+            fab:fab_colorPressed="@color/cart"
+            app:fab_label="Chat"
+            fab:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/floating_faq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/faq"
+            fab:fab_colorNormal="@color/cart"
+            fab:fab_colorPressed="@color/cart"
+            app:fab_label="Help"
+            fab:fab_size="mini" />
+    </com.github.clans.fab.FloatingActionMenu>
+
+</RelativeLayout>

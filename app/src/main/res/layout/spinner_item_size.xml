@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/option"
+    android:layout_width="20dp"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:gravity="center_vertical"
+    android:textAlignment="gravity"
+    android:maxLines="1"
+    android:ellipsize="end"
+    android:textColor="@color/blackText"
+    android:layout_alignParentTop="true"/>

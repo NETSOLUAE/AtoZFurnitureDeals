@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimen_8"
+    android:padding="@dimen/dimen_8"
+    android:elevation="@dimen/dimen_2"
+    android:clipToPadding="false"
+    android:background="@color/slider_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <TextView
+            android:id="@+id/select_address_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="top"
+            android:textColor="@color/blackText"/>
+
+        <TextView
+            android:id="@+id/select_address_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:textColor="@color/blackText"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/select_address_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dimen_5"
+        android:textSize="@dimen/dimen_10s"/>
+
+    <TextView
+        android:id="@+id/select_address_landmark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dimen_10s"/>
+
+    <TextView
+        android:id="@+id/select_address_mobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dimen_10s"/>
+
+    <TextView
+        android:id="@+id/select_address_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dimen_10s"/>
+
+    <TextView
+        android:id="@+id/select_address_delivery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dimen_10s"/>
+
+    <TextView
+        android:id="@+id/select_address_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/dimen_5"
+        android:textSize="@dimen/dimen_10s"/>
+
+</LinearLayout>

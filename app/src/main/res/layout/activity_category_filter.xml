@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:weightSum="2"
+    android:padding="@dimen/dimen_8">
+
+    <!-- NOTE: This list should be displayed in a list
+    instead of nested layouts -->
+
+    <ExpandableListView
+        android:id="@+id/expandableListViewCategoryFilter"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.8"
+        android:groupIndicator="@null"
+        android:scrollbarSize="0.67dp"
+        android:dividerHeight="0.67dp"
+        android:divider="#dcdcdc" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:gravity="center">
+        <Button
+            android:id="@+id/button_category_filter"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_40"
+            android:background="@drawable/button_big"
+            android:textColor="@color/colorAccent"
+            android:textAllCaps="false"
+            android:text="@string/button_apply_filter"/>
+    </LinearLayout>
+
+</LinearLayout>

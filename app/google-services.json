@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "966946439516",
+    "project_id": "a-to-z-furniture-deals"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:966946439516:android:caa39ebb17b15d99",
+        "android_client_info": {
+          "package_name": "com.netsol.atoz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "966946439516-i9aqbjqmoumqfjmnhpap1q2jha8n4on4.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "966946439516-1dntrblloam28e3e3f1lomp8ciq8tl7g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.netsol.atoz",
+            "certificate_hash": "dbdbfbb5d058cb9f6807540c50e1b12e86b6cc55"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCghJrL94KzT_HRtVd9mBy8NCAscszsIc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

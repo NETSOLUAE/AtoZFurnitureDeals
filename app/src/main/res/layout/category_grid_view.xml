@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dimen_2"
+        android:elevation="@dimen/dimen_2"
+        android:background="@color/slider_background"
+        android:id="@+id/category_detail_layout">
+        <!--Height and Width of ImageView (176 X 106) is 25.142857142857 % of Original Image (700 X 420)-->
+        <RelativeLayout
+            android:id="@+id/category_image_group"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_106">
+            <ImageView
+                android:id="@+id/category_product_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/app_name" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_106"
+                android:layout_alignParentEnd="true"
+                android:paddingTop="@dimen/dimen_68"
+                android:id="@+id/discount_layout">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorAccent"
+                        android:gravity="center"
+                        android:textSize="@dimen/dimen_8s"
+                        android:background="@drawable/grid_discount"
+                        android:contentDescription="@string/app_name"/>
+
+                    <TextView
+                        android:id="@+id/category_percent_off"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-14%"
+                        android:layout_centerVertical="true"
+                        android:paddingStart="@dimen/dimen_11"
+                        android:textSize="@dimen/dimen_10s"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorAccent"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/category_product_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_42"
+            android:text="Consetur apiscing \nConsetur apiscing \nConsetur apiscing"
+            android:layout_marginTop="@dimen/dimen_8"
+            android:layout_marginStart="@dimen/dimen_8"
+            android:textSize="@dimen/dimen_11s"
+            android:layout_below="@id/category_image_group"
+            android:textColor="@color/ProductName"/>
+
+        <View
+            android:id="@+id/category_divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1"
+            android:layout_below="@id/category_product_name"
+            android:layout_marginTop="@dimen/dimen_8"
+            android:layout_marginStart="@dimen/dimen_8"
+            android:layout_marginEnd="@dimen/dimen_8"
+            android:background="@color/slider_divider"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8"
+            android:layout_marginBottom="@dimen/dimen_8"
+            android:layout_marginStart="@dimen/dimen_8"
+            android:layout_marginEnd="@dimen/dimen_8"
+            android:layout_below="@id/category_divider"
+            android:baselineAligned="false">
+
+            <TextView
+                android:id="@+id/category_deprecated_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/dimen_8s"
+                android:paddingEnd="@dimen/dimen_10"
+                android:layout_gravity="center_vertical"
+                android:text="350 AED" />
+
+            <TextView
+                android:id="@+id/category_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/slider_price"
+                android:textSize="@dimen/dimen_11s"
+                android:text="300 AED" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

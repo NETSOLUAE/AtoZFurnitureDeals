@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <layer-list>
+            <item android:right="0dp" android:left="0dp">
+                <bitmap
+                    android:src="@drawable/register_textfield_background" />
+            </item>
+            <item android:right="5dp" android:left="2dp">
+                <bitmap android:gravity="center_vertical|right" android:src="@drawable/spinner_arrow" />
+            </item>
+        </layer-list>
+
+    </item>
+</selector>

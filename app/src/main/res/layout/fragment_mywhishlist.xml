@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/layoutEmptyWhisList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_150"
+            android:text="@string/no_items_cart"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/subscribeText"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_40"
+            android:layout_gravity="center"
+            android:background="@drawable/cart_empty"
+            android:contentDescription="@string/app_name"/>
+
+        <Button
+            android:id="@+id/button_explore_products_whish"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_40"
+            android:layout_marginTop="@dimen/dimen_75"
+            android:layout_gravity="center"
+            android:text="@string/button_explore"
+            android:textColor="@color/colorAccent"
+            android:textAllCaps="false"
+            android:background="@drawable/button_big"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.05"
+            android:gravity="bottom">
+            <include
+                android:id="@+id/personal_footer"
+                layout="@layout/footer_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/whishlistLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3.45"
+            android:paddingStart="@dimen/dimen_8"
+            android:paddingEnd="@dimen/dimen_8"
+            android:paddingTop="@dimen/dimen_8"
+            android:background="@color/home_half_background">
+
+            <ListView
+                android:id="@+id/whishlist"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:dividerHeight="@dimen/dimen_5"
+                android:divider="@color/home_half_background"
+                android:scrollbarSize="1dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:orientation="horizontal"
+            android:background="@color/home_half_background">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/whishlist_currency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:paddingEnd="@dimen/dimen_8"
+                    android:paddingStart="@dimen/dimen_4"
+                    android:paddingTop="@dimen/dimen_2"
+                    android:text="@string/product_price_currency"
+                    android:textColor="@color/cart_total"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/whishlist_total_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/dimen_4"
+                    android:paddingEnd="@dimen/dimen_0"
+                    android:layout_toStartOf="@id/whishlist_currency"
+                    android:textColor="@color/cart_total"
+                    android:textSize="@dimen/dimen_17s"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@id/whishlist_total_price"
+                    android:text="@string/grand_total_cart"
+                    android:textColor="@color/blackText"
+                    android:textSize="@dimen/dimen_17s"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:paddingStart="@dimen/dimen_8"
+            android:paddingEnd="@dimen/dimen_8"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@color/home_half_background">
+
+            <Button
+                android:id="@+id/button_checkout_whishlist"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40"
+                android:background="@drawable/button_big"
+                android:text="@string/button_checkout"
+                android:textColor="@color/colorAccent"
+                android:textAllCaps="false"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.05"
+            android:gravity="bottom">
+            <include
+                android:id="@+id/personal_footer"
+                layout="@layout/footer_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

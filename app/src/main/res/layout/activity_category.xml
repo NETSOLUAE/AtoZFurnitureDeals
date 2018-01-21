@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/footer"
+            layout="@layout/footer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"/>
+
+        <RelativeLayout
+            android:id="@+id/category_relative_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent"
+            android:layout_above="@id/footer"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/category_filter_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/top_background"
+                android:layout_alignParentTop="true"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.76">
+                    <Button
+                        android:id="@+id/category_price_change"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dimen_24"
+                        android:background="@color/slider_background"
+                        android:drawableEnd="@drawable/spinner_arrow"
+                        android:textColor="@color/blackText"
+                        android:paddingEnd="@dimen/dimen_4"
+                        android:paddingStart="@dimen/dimen_4"
+                        android:layout_marginEnd="@dimen/dimen_6"
+                        android:layout_marginTop="@dimen/dimen_6"
+                        android:layout_marginBottom="@dimen/dimen_6"
+                        android:layout_marginStart="@dimen/dimen_8"
+                        android:drawablePadding="@dimen/dimen_4"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/dimen_12s"
+                        android:text="@string/button_price_range">
+                    </Button>
+
+                    <Button
+                        android:id="@+id/category_cat_change"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dimen_24"
+                        android:background="@color/slider_background"
+                        android:drawableEnd="@drawable/spinner_arrow"
+                        android:textColor="@color/blackText"
+                        android:paddingEnd="@dimen/dimen_4"
+                        android:paddingStart="@dimen/dimen_4"
+                        android:drawablePadding="@dimen/dimen_4"
+                        android:layout_marginTop="@dimen/dimen_6"
+                        android:layout_marginBottom="@dimen/dimen_6"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/dimen_12s"
+                        android:text="@string/button_category">
+                    </Button>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/category_grid_change"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/dimen_10"
+                    android:paddingEnd="@dimen/dimen_10"
+                    android:layout_weight="0.24"
+                    android:gravity="center|end">
+                <ImageView
+                    android:id="@+id/grid_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_4"
+                    android:layout_marginEnd="@dimen/dimen_4"
+                    android:background="@drawable/top_grid"
+                    android:contentDescription="@string/app_name"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/categoryGridLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_8"
+                android:layout_below="@id/category_filter_layout">
+
+                <!--Grid Width of ImageView (176) is 25.142857142857 % of Original Image (700)-->
+                <GridView
+                    android:id="@+id/categoryGridview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:numColumns="2"
+                    android:horizontalSpacing="2dp"
+                    android:verticalSpacing="2dp" />
+                </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/categoriesGridLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_8"
+                android:layout_below="@id/category_filter_layout">
+
+                <GridView
+                    android:id="@+id/categoriesGridview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:horizontalSpacing="2dp"
+                    android:verticalSpacing="2dp"
+                    android:numColumns="3"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/categoryListLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/category_filter_layout"
+                android:padding="@dimen/dimen_8"
+                android:visibility="gone">
+
+                <ListView
+                    android:id="@+id/categoryListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:dividerHeight="@dimen/dimen_2"
+                    android:divider="@color/colorAccent"
+                    android:scrollbarSize="1dp"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/transparent_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="#99000000"
+            android:visibility="gone">
+        </LinearLayout>
+
+        <include
+            android:id="@+id/floating_layout"
+            layout="@layout/floating_menu_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+    <!-- Adding bottom sheet after main content -->
+    <include layout="@layout/bottom_sheet" />
+
+</android.support.design.widget.CoordinatorLayout>

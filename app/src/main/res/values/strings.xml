@@ -1,0 +1,334 @@
+<resources>
+    <string name="app_name">A to Z</string>
+
+    <!--Welcome Text-->
+    <string name="welcome">Welcome</string>
+    <string name="loginSignUp">Login/Sign up</string>
+
+    <!--Button Text-->
+    <string name="button_skip">Skip</string>
+    <string name="button_next">Next</string>
+    <string name="button_get_started">Start</string>
+    <string name="button_signin">Sign in</string>
+    <string name="button_signup">Sign up</string>
+    <string name="button_subscribe">Subscribe</string>
+    <string name="button_facebook">Facebook</string>
+    <string name="button_google">Google+</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="button_alert_ok">Ok</string>
+    <string name="button_alert_cancel">Cancel</string>
+    <string name="button_done">Done</string>
+    <string name="button_add_to_cart">Add to Cart</string>
+    <string name="button_pay_securely">Pay Securely</string>
+    <string name="button_continue_shopping">Continue Shopping</string>
+    <string name="button_explore">Explore Products</string>
+    <string name="button_checkout">Checkout</string>
+    <string name="button_save_later">Save for later</string>
+    <string name="button_contact">Post Comments</string>
+    <string name="button_resend">Resend Code</string>
+    <string name="button_verify">Verify</string>
+    <string name="button_save_address">Save Address</string>
+    <string name="button_save_personal">Save</string>
+    <string name="button_add_address">Add Address</string>
+    <string name="button_edit">Edit</string>
+    <string name="button_view_order_details">View Order Details</string>
+    <string name="button_tract_order">Track Order</string>
+    <string name="button_apply_filter">Apply Filter</string>
+    <string name="button_make_payment">Make Payment</string>
+    <string name="button_price_range">Price Range</string>
+    <string name="button_color">Color</string>
+    <string name="button_category">Category</string>
+
+    <!--Text Field Hint-->
+    <string name="edit_text_email">Email</string>
+    <string name="edit_text_verification_code">Enter your Verification Code</string>
+
+    <!--Welcome Text-->
+    <string name="welcome_first_text">Pellentesque non dignissim neque. Ut\n porta viverra est, ut dignissim elit\n elementum ut.</string>
+    <string name="welcome_subscribe_text">We hate spam just as much as you do\n and will not spam your email.</string>
+    <string name="welcome_subscribe_text1">Subscribe to our\n newsletter to receive\n weekly updates.</string>
+
+    <!--SignIn Text-->
+    <string name="signin_text">Quisque tempus arcu sapien,\n id convallis turpis dictum quis.</string>
+    <string name="not_reg">Not registered yet?</string>
+    <string name="password_text">Password</string>
+    <string name="forget_password">Forgot Password?</string>
+
+    <!--Register Text-->
+    <string name="nameText">NAME</string>
+    <string name="nameHint">Your Name</string>
+    <string name="firstNameText">FIRST NAME</string>
+    <string name="firstNameHint">Your First name</string>
+    <string name="lastNameText">LAST NAME</string>
+    <string name="lastNameHint">Your Last name</string>
+    <string name="emailText">EMAIL</string>
+    <string name="emailHint">Your Email</string>
+    <string name="subjectText">SUBJECT</string>
+    <string name="subjectHint">Subject</string>
+    <string name="mobileText">MOBILE NUMBER</string>
+    <string name="mobileHint">Your Mobile Number</string>
+    <string name="mobileHintReg">51 2365498</string>
+    <string name="dobText">DATE OF BIRTH</string>
+    <string name="dobHint">Your Birth date</string>
+    <string name="genderText">GENDER</string>
+    <string name="radioMale">Male</string>
+    <string name="radioFemale">Female</string>
+    <string name="countryHeading">COUNTRY OF RESIDENCE</string>
+    <string name="nationalityHeading">NATIONALITY</string>
+    <string name="countryText">United Arab Emirates</string>
+    <string name="passwordText">PASSWORD</string>
+    <string name="passwordHint">Password</string>
+    <string name="confirmPasswordText">CONFIRM PASSWORD</string>
+    <string name="confirmPasswordHint">Confirm Password</string>
+    <string name="messageText">MESSAGE</string>
+    <string name="messageHint">Your Message</string>
+    <string name="checkBoxText">I would like to register to Deal of the Day &amp; save up to 70%</string>
+    <string name="termsText">By clicking the Sign up button, you confirm that you accept our</string>
+
+    <!--Verification Text-->
+    <string name="verification">Please Enter 6-digit Secret Code sent to your registered Mobile Number for Verification purpose.</string>
+
+    <!--Sliding Text-->
+    <string name="home">Home</string>
+    <string name="myOrders">My Orders</string>
+    <string name="trackOrders">Track Orders</string>
+    <string name="myWhishList">My Whislist</string>
+    <string name="shppingAddress">Shipping Address</string>
+    <string name="accountSettings">Account Settings</string>
+    <string name="resetPassword">Reset Password</string>
+    <string name="about">About A to Z Furniture</string>
+    <string name="contactUs">Contact Us</string>
+    <string name="callUs">Call Us</string>
+    <string name="faq">FAQ</string>
+    <string name="shareWithFriends">Share With Friends</string>
+    <string name="rateUs">Rate Us</string>
+    <string name="logout">Logout</string>
+    <string name="openDrawer">open_drawer</string>
+    <string name="closeDrawer">close_drawer</string>
+    <string name="uploadPhoto">Upload \nPhoto</string>
+    <string name="cart">Cart</string>
+    <string name="favorite">Add to Favorite</string>
+
+    <!-- Toolbar titles when navigation menu item is selected -->
+    <string-array name="nav_item_activity_titles">
+        <item> </item>
+        <item>My Orders</item>
+        <item>My Whislist</item>
+        <item>Shipping Address</item>
+        <item>Account Settings</item>
+        <item>Reset Password</item>
+        <item>About A to Z Furniture</item>
+        <item>Contact Us</item>
+        <item>FAQ</item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+    </string-array>
+
+    <!--Forgot Password-->
+    <string name="forget_heading">Forgot Password</string>
+    <string name="forget_description">Enter your registered email address below. We will send you an email with the link for reseting your password</string>
+    <string name="forget_email_hint">Email Address</string>
+
+    <!--Reset Password-->
+    <string name="reset_old">Enter Your Old Password</string>
+    <string name="reset_new">Enter Your New Password</string>
+    <string name="reset_confirm_new">Confirm Your New Password</string>
+    <string name="reset_description">Enter below credentials to reset your Password</string>
+
+    <!--Alert Dialog-->
+    <string name="alert_logout">Do you really want to Logout?</string>
+    <string name="alert_delete">Are you sure you want to delete this item?</string>
+
+    <!--Toast Error Message-->
+    <string name="all_fields_mandatory">All fields are mandatory</string>
+    <string name="invalid_email">Please enter valid Email Address.</string>
+    <string name="invalid_mobile">Please enter valid Mobile Number.</string>
+    <string name="old_new_password_mismatch">Old Password and New Password cannot be the same.</string>
+    <string name="old_password_incorrect">Old Password is incorrect.</string>
+    <string name="password_mismatch">Entered Password and Confirm Password does not match</string>
+    <string name="password_error_message">Password should be more than 5 characters</string>
+    <string name="enter_credentials_login">Please Enter the credentials to login.</string>
+    <string name="email_not_registered">Entered Email is not registered. Please register to continue</string>
+    <string name="email_password_incorrect">Entered Email or Password is Incorrect.</string>
+    <string name="terms_error">Please Agree to Our Terms and Condition.</string>
+    <string name="verificaton_code_error">Please Enter your 6 digit Verification Code.</string>
+    <string name="enter_email_error">Please Enter your registered Email Address.</string>
+
+    <!--Action Bar Text-->
+    <string name="crop_activity">Set Image</string>
+
+    <!--Home Fragment Text-->
+    <string name="trending_now">Trending Now</string>
+    <string name="view_all">View all</string>
+    <string name="category">Category</string>
+    <string name="colorsAvailable">Colors Available</string>
+    <string name="searchQueryHint">What are you looking for?</string>
+
+    <!--Payment Screen Text-->
+    <string name="credit_card">Credit/Debit \nCard</string>
+    <string name="onilne_banking">Online Banking</string>
+
+    <!--Product Details Text-->
+    <string name="product_price_heading">Unit Price: </string>
+    <string name="product_sub_total_heading">Sub Total: </string>
+    <string name="product_price_currency">AED</string>
+    <string name="product_quantity">Qty</string>
+    <string name="product_option">OPTIONS</string>
+    <string name="product_actual_heading">Actual value:</string>
+    <string name="product_you_save_heading">You save:</string>
+    <string name="product_description_heading">Product Description</string>
+    <string name="product_specification_heading">Specifications</string>
+    <string name="product_delivery_heading">Delivery</string>
+    <string name="product_warranty_heading">Warranty</string>
+
+    <!--Credit Card Text-->
+    <string name="credit_enter_card_no">Enter card number</string>
+    <string name="credit_card_name">Name as on card</string>
+    <string name="credit_card_total_amount">Total Amount: </string>
+    <string name="credit_card_hint">0000 0000 0000 0000</string>
+    <string name="credit_card_expiry_hint">MM/YYYY</string>
+    <string name="credit_card_cvv_hint">CVV number</string>
+    <string name="credit_card_name_hint">Lorem lipsum dolor</string>
+    <string name="credit_save_card">Save this card for future transactions?</string>
+    <string-array name="credit_month">
+        <item>-MM-</item>
+        <item>01 - Jan</item>
+        <item>02 - Feb</item>
+        <item>03 - Mar</item>
+        <item>04 - Apr</item>
+        <item>05 - May</item>
+        <item>06 - Jun</item>
+        <item>07 - Jul</item>
+        <item>08 - Aug</item>
+        <item>09 - Sep</item>
+        <item>10 - Oct</item>
+        <item>11 - Nov</item>
+        <item>12 - Dec</item>
+    </string-array>
+
+    <!--Cart Text-->
+    <string name="no_items_cart">Your shopping\ncart is empty</string>
+    <string name="grand_total_cart">Grand Total:</string>
+    <string name="save_later_cart">Saved items</string>
+
+    <!--Shipping Address Text-->
+    <string name="add_new_location">Add New Location</string>
+    <string name="add_enabled">Enable</string>
+    <string name="add_disabled">Disable</string>
+    <string name="add_your_name_text">Your name</string>
+    <string name="add_street_no">Street No.</string>
+    <string name="add_building">Building</string>
+    <string name="add_apartment">Apartment</string>
+    <string name="add_floor">Floor</string>
+    <string name="add_landmark">Landmark</string>
+    <string name="add_phone">Phone</string>
+    <string name="add_mobile">Mobile</string>
+    <string name="add_area">Area</string>
+    <string name="add_location">Location</string>
+    <string name="add_delivery">Delivery Time</string>
+    <string name="add_city">Emirate</string>
+    <string name="add_country">Country</string>
+    <string name="add_note">Note</string>
+    <string name="address_line1">Office No. 1501, Al Attar Tower, Sh. Zayed Road, Dubai, U.A.E.</string>
+    <string name="address_mobile">+971-4-355-5136</string>
+    <string name="address_email">sales@netsol-intl.com</string>
+    <string name="address_save_message">Address saved Successfully</string>
+    <string-array name="address_location">
+        <item>Set Location</item>
+        <item>Home</item>
+        <item>Office</item>
+    </string-array>
+    <string-array name="address_delivery_time">
+        <item>Set Delivery Time</item>
+        <item>10:00 AM - 02:00 PM</item>
+        <item>02:00 AM - 06:00 PM</item>
+        <item>06:00 PM - 10:00 PM</item>
+    </string-array>
+
+    <string name="link_to_app_google"><![CDATA[<a href="https://play.google.com/store/apps/details?id=com.netsol.atoz"> Click here to get it Now!</a>]]></string>
+
+    <!--Server Error-->
+    <string name="server_busy">Oops! Our server seems to be busy right now. Please try again later.</string>
+    <string name="network_not_available_heading">No Internet Connection</string>
+    <string name="network_not_available">We cannot detect any Internet Connection. Please check your Internet Connection and Try Again.</string>
+
+    <!--Progress Dialog-->
+    <string name="authenticating">Authenticating</string>
+    <string name="registering">Registering</string>
+    <string name="verifying">Verifying Secret Code</string>
+    <string name="getting_add">Getting Address…</string>
+    <string name="getting_order">Getting Order…</string>
+    <string name="saving_add">Saving Address…</string>
+    <string name="placing_order">Processing your Order…</string>
+    <string name="processing">Processing…</string>
+    <string name="adding_to_cart">Adding to Cart…</string>
+    <string name="saving_personal">Saving Personal Details…</string>
+    <string name="reseting_password">Reseting Password…</string>
+    <string name="post_contact">Submitting your information…</string>
+    <string name="getting_products">Getting Products…</string>
+    <string name="uploading_profile_pic">Uploading Profile Pic…</string>
+    <string name="account_setting">Fetching Account Setting…</string>
+    <string name="fetching_data">Fetching Data…</string>
+    <string name="please_wait">Please Wait…</string>
+
+    <!--Contact Us-->
+    <string name="contact_type">TELL US WHERE YOUR PROBLEM LIES</string>
+    <string-array name="contact_type_value">
+        <item>Set Query</item>
+        <item>General Inquiry</item>
+        <item>Technical Support</item>
+        <item>Warranty Claim</item>
+        <item>Delivery Inquiry</item>
+        <item>Returns &amp; Replacements</item>
+    </string-array>
+
+    <!--Account Setting-->
+    <string name="personal_information">Personal Information</string>
+    <string name="communication_preference">Communication and Notification Preference</string>
+    <string name="account_email">Email</string>
+    <string name="account_sms">SMS</string>
+    <string name="account_notification">App Notification</string>
+
+    <!--Order Status Text-->
+    <string name="no_records_available">No Records Available</string>
+    <string name="order_no">Order Number</string>
+    <string name="order_date">Order Date</string>
+    <string name="order_amount">Order Amount</string>
+    <string name="order_status">Order Status</string>
+    <string name="order_total">Order Total</string>
+    <string name="order_shipping">Shipping</string>
+    <string name="order_in_processing">InProcessing</string>
+    <string name="order_shipped">Shipped</string>
+    <string name="order_detail_shipped">Shipping and Handling</string>
+    <string name="order_total_before_vat">Total Before VAT</string>
+    <string name="order_vat">VAT / TAX</string>
+    <string name="order_delivered">Delivered</string>
+    <string name="order_no_items">You have not \nplaced any orders</string>
+
+    <!--Congragulation Text-->
+    <string name="congrag">Congratulation!</string>
+    <string name="thank_you">Thank you for shopping with us!</string>
+    <string name="congrag_order_placed">Your order has been placed successfully.</string>
+
+    <!--Review Text-->
+    <string name="review_subtotal">Sub Total</string>
+    <string name="review_shipping">Shipping &amp; Handling</string>
+    <string name="review_charges">(Charges are based on Area)</string>
+    <string name="review_total">Total Before VAT</string>
+    <string name="review_vat">VAT / TAX</string>
+    <string name="review_grand_total">Grand Total</string>
+
+    <!--Follow Us Links-->
+    <string name="follow_fb">https://www.facebook.com/A-to-Z-Furniture-187763038630619/</string>
+    <string name="follow_google">https://plus.google.com/100611590933068312112</string>
+    <string name="follow_linkendin">https://www.linkedin.com/in/a-to-z-furniture-2aa36a156</string>
+    <string name="follow_twitter">https://twitter.com/AtoZ_Furniture</string>
+    <string name="follow_cam">https://www.instagram.com/atozfurnituretrading/</string>
+    <string name="follow_cam_app">https://www.instagram.com/_u/atozfurnituretrading/</string>
+    <string name="follow_twitter_user_id">949427058979065857</string>
+
+    <string name="facebook_app_id">391271714665024</string>
+    <string name="fb_login_protocol_scheme">fb391271714665024</string>
+</resources>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dimen_8"
+        android:paddingStart="@dimen/dimen_8"
+        android:paddingBottom="@dimen/dimen_10"
+        android:paddingEnd="@dimen/dimen_15">
+
+        <TextView
+            android:id="@+id/home_category_group_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/trending_now"
+            android:textColor="@color/blackText"/>
+
+        <TextView
+            android:id="@+id/home_category_group_view_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_all"
+            android:paddingStart="@dimen/dimen_6"
+            android:paddingEnd="@dimen/dimen_6"
+            android:textSize="@dimen/dimen_10s"
+            android:textColor="@color/colorPrimary"/>
+
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingStart="@dimen/dimen_8"
+        android:paddingBottom="@dimen/dimen_10"
+        android:paddingEnd="@dimen/dimen_8">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/category_main_vertical_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</LinearLayout>

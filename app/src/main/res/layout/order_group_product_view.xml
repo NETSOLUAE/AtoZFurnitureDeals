@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/orderGroupProductLayout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorAccent"
+    android:baselineAligned="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:baselineAligned="false">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.65"
+            android:orientation="vertical">
+            <!--Height and Width of ImageView (117 X 82) is 16.714285714286 % of Original Image (700 X 420)-->
+            <ImageView
+                android:id="@+id/order_group_product_image"
+                android:layout_width="@dimen/dimen_117"
+                android:layout_height="@dimen/dimen_82"
+                android:layout_margin="@dimen/dimen_4"
+                android:scaleType="fitXY"
+                android:contentDescription="@string/app_name"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.35"
+            android:paddingStart="@dimen/dimen_8"
+            android:paddingTop="@dimen/dimen_4"
+            android:paddingEnd="@dimen/dimen_4">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/order_group_product_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blackText"
+                    android:paddingEnd="@dimen/dimen_2"
+                    android:paddingStart="@dimen/dimen_0"
+                    android:textSize="13sp"
+                    android:layout_alignParentStart="true"/>
+
+                <TextView
+                    android:id="@+id/order_group_product_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dimen_2"
+                    android:paddingBottom="@dimen/dimen_2"
+                    android:layout_below="@id/order_group_product_name"
+                    android:textColor="@color/ProductName"
+                    android:textSize="@dimen/dimen_10s"/>
+
+                <TextView
+                    android:id="@+id/order_group_product_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dimen_2"
+                    android:paddingBottom="@dimen/dimen_2"
+                    android:layout_below="@id/order_group_product_code"
+                    android:textColor="@color/ProductName"
+                    android:textSize="@dimen/dimen_10s"/>
+
+                <TextView
+                    android:id="@+id/order_group_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dimen_2"
+                    android:paddingBottom="@dimen/dimen_2"
+                    android:layout_below="@id/order_group_product_color"
+                    android:textColor="@color/ProductName"
+                    android:textSize="@dimen/dimen_10s"
+                    android:text="Size"/>
+
+                <TextView
+                    android:id="@+id/order_group_quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dimen_2"
+                    android:paddingBottom="@dimen/dimen_2"
+                    android:layout_below="@id/order_group_size"
+                    android:textColor="@color/ProductName"
+                    android:textSize="@dimen/dimen_10s"
+                    android:text="@string/product_quantity"/>
+
+                <TextView
+                    android:id="@+id/order_group_price_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dimen_2"
+                    android:paddingBottom="@dimen/dimen_2"
+                    android:layout_below="@id/order_group_quantity"
+                    android:text="@string/product_price_heading"
+                    android:textSize="@dimen/dimen_10s"
+                    android:textColor="@color/ProductName"/>
+
+                <TextView
+                    android:id="@+id/order_group_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/dimen_2"
+                    android:paddingStart="@dimen/dimen_0"
+                    android:layout_below="@id/order_group_size"
+                    android:layout_marginTop="@dimen/dimen_12"
+                    android:textSize="@dimen/dimen_10s"
+                    android:textStyle="bold"
+                    android:textColor="@color/blackText"
+                    android:layout_toEndOf="@id/order_group_price_heading"
+                    android:layout_alignBaseline="@id/order_group_price_heading"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/product_price_currency"
+                    android:layout_below="@id/order_group_size"
+                    android:layout_marginTop="@dimen/dimen_12"
+                    android:textSize="@dimen/dimen_10s"
+                    android:layout_toEndOf="@id/order_group_price"
+                    android:textColor="@color/blackText"
+                    android:layout_alignBaseline="@id/order_group_price_heading"/>
+
+                <TextView
+                    android:id="@+id/order_group_sub_total_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dimen_2"
+                    android:paddingBottom="@dimen/dimen_2"
+                    android:layout_below="@id/order_group_price_heading"
+                    android:text="@string/product_sub_total_heading"
+                    android:textSize="@dimen/dimen_10s"
+                    android:textColor="@color/ProductName"/>
+
+                <TextView
+                    android:id="@+id/order_group_sub_total_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/dimen_2"
+                    android:paddingStart="@dimen/dimen_0"
+                    android:layout_below="@id/order_group_sub_total_heading"
+                    android:layout_marginTop="@dimen/dimen_12"
+                    android:textSize="@dimen/dimen_10s"
+                    android:textColor="@color/cart_total"
+                    android:textStyle="bold"
+                    android:layout_toEndOf="@id/order_group_sub_total_heading"
+                    android:layout_alignBaseline="@id/order_group_sub_total_heading"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/product_price_currency"
+                    android:layout_below="@id/order_group_sub_total_heading"
+                    android:layout_marginTop="@dimen/dimen_12"
+                    android:textSize="@dimen/dimen_10s"
+                    android:textColor="@color/cart_total"
+                    android:layout_toEndOf="@id/order_group_sub_total_price"
+                    android:layout_alignBaseline="@id/order_group_sub_total_heading"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/order_group_product_divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1"
+        android:layout_marginTop="@dimen/dimen_6"
+        android:layout_marginBottom="@dimen/dimen_6"
+        android:background="@color/home_half_background"/>
+
+</LinearLayout>

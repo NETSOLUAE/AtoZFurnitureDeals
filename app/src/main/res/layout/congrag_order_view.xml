@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorAccent"
+    android:layout_margin="@dimen/dimen_8"
+    android:elevation="@dimen/dimen_8"
+    android:padding="@dimen/dimen_8">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_no"
+                android:textColor="@color/blackText"
+                android:textSize="@dimen/dimen_12s"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_status"
+                android:textColor="@color/blackText"
+                android:textSize="@dimen/dimen_12s"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_date"
+                android:textColor="@color/blackText"
+                android:textSize="@dimen/dimen_12s"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_total"
+                android:textColor="@color/blackText"
+                android:textSize="@dimen/dimen_12s"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/order_group_paid_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="start">
+
+            <TextView
+                android:id="@+id/congrag_order_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_no"
+                android:textSize="@dimen/dimen_12s"/>
+
+            <TextView
+                android:id="@+id/congrag_order_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_status"
+                android:textSize="@dimen/dimen_12s"/>
+
+            <TextView
+                android:id="@+id/congrag_order_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_date"
+                android:textSize="@dimen/dimen_12s"/>
+
+            <TextView
+                android:id="@+id/congrag_order_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12000 AED"
+                android:textSize="@dimen/dimen_12s"
+                android:textColor="@color/cart_total"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--<Button-->
+        <!--android:id="@+id/button_track_order_details"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/dimen_40"-->
+        <!--android:background="@android:color/transparent"-->
+        <!--android:textColor="@color/colorPrimaryDark"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:textAllCaps="false"-->
+        <!--android:textSize="@dimen/dimen_12s"-->
+        <!--android:text="@string/button_tract_order"/>-->
+
+</LinearLayout>

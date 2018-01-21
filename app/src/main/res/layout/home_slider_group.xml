@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/dimen_8"
+        android:paddingBottom="@dimen/dimen_10"
+        android:paddingEnd="@dimen/dimen_15">
+
+        <TextView
+            android:id="@+id/home_trending_now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/trending_now"
+            android:textColor="@color/blackText"/>
+
+        <TextView
+            android:id="@+id/home_view_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_all"
+            android:paddingStart="@dimen/dimen_6"
+            android:paddingEnd="@dimen/dimen_6"
+            android:textSize="@dimen/dimen_10s"
+            android:textColor="@color/colorPrimary"/>
+
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingStart="@dimen/dimen_8"
+        android:paddingBottom="@dimen/dimen_10"
+        android:paddingEnd="@dimen/dimen_8">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dealsView">
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</LinearLayout>

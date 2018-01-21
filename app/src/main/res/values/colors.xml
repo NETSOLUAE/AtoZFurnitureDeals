@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="colorPrimary">#0f9591</color>-->
+    <color name="colorPrimary">#0f9591</color>
+    <color name="colorPrimaryDark">#0f9591</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="cart">#151b4e</color>
+
+    <color name="colorSkipButton">#777777</color>
+    <color name="blackText">#000000</color>
+    <color name="colorAvailableText">#050200</color>
+    <color name="viewAll">#666666</color>
+    <color name="subscribeEmailUnderline">#e5e5e5</color>
+    <color name="subscribeEmailText">#171616</color>
+    <color name="subscribeText">#585858</color>
+    <color name="ProductName">#3e3e3e</color>
+    <color name="ProductQuantity">#001f4d</color>
+    <color name="ProductDivider">#cccccc</color>
+    <color name="ProductSpinner">#c2c2c2</color>
+    <color name="PaymentOptionBackground">#eeeeee</color>
+    <color name="PaymentCardDivider">#d7d7d7</color>
+    <color name="PaymentSaveCard">#9a9a9a</color>
+    <color name="orderStatusHeader">#e4e4e4</color>
+    <color name="orderLine">#acacac</color>
+    <color name="slider_divider">#d1d0d0</color>
+    <color name="slider_price">#ea1945</color>
+    <color name="slider_background">#f7f5f5</color>
+    <color name="home_half_background">#e2e2e2</color>
+    <color name="cart_total">#fe0000</color>
+    <color name="add_location">#bcbcbc</color>
+    <!-- dots active colors -->
+    <color name="dot_light_screen1">#b7b7b7</color>
+    <color name="dot_welcome">#0f9591</color>
+
+    <array name="array_dot_active">
+        <item>@color/dot_welcome</item>
+        <item>@color/dot_welcome</item>
+        <item>@color/dot_welcome</item>
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen1</item>
+    </array>
+</resources>

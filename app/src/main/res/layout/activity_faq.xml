@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <include
+        android:id="@+id/faq_footer"
+        layout="@layout/footer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+
+    <ExpandableListView
+        android:id="@+id/expandableListViewFaq"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/faq_footer"
+        android:groupIndicator="@null"
+        android:scrollbarSize="0.67dp"
+        android:dividerHeight="0.67dp"
+        android:divider="#dcdcdc"
+        android:paddingStart="@dimen/dimen_8"
+        android:paddingEnd="@dimen/dimen_8" />
+
+    <LinearLayout
+        android:id="@+id/transparent_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="#99000000"
+        android:visibility="gone">
+    </LinearLayout>
+
+    <include
+        android:id="@+id/floating_layout"
+        layout="@layout/floating_menu_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

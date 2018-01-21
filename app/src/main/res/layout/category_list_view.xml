@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/category_detail_layout">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_2"
+        android:elevation="@dimen/dimen_2"
+        android:background="@color/slider_background">
+        <!--Height and Width of ImageView (118 X 71) is 16.857142857143 % of Original Image (700 X 420)-->
+        <RelativeLayout
+            android:id="@+id/product_image"
+            android:layout_width="@dimen/dimen_118"
+            android:layout_height="@dimen/dimen_71">
+            <ImageView
+                android:id="@+id/category_product_image_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/app_name" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_71"
+                android:layout_alignParentEnd="true"
+                android:paddingTop="@dimen/dimen_37"
+                android:id="@+id/discount_layout">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorAccent"
+                        android:gravity="center"
+                        android:textSize="@dimen/dimen_8s"
+                        android:background="@drawable/grid_discount"
+                        android:contentDescription="@string/app_name"/>
+
+                    <TextView
+                        android:id="@+id/category_percent_off_list"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-140%"
+                        android:layout_marginStart="@dimen/dimen_8"
+                        android:layout_marginTop="@dimen/dimen_15"
+                        android:textSize="@dimen/dimen_10s"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorAccent"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/category_product_name_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Consetur apiscing \nConsetur apiscing"
+            android:layout_marginStart="@dimen/dimen_8"
+            android:textSize="@dimen/dimen_11s"
+            android:layout_toEndOf="@id/product_image"
+            android:textColor="@color/ProductName"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8"
+            android:layout_marginStart="@dimen/dimen_8"
+            android:layout_marginEnd="@dimen/dimen_8"
+            android:layout_toEndOf="@id/product_image"
+            android:layout_alignBottom="@id/product_image"
+            android:weightSum="3"
+            android:baselineAligned="false">
+
+            <TextView
+                android:id="@+id/category_deprecated_price_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/dimen_0"
+                android:paddingEnd="@dimen/dimen_10"
+                android:textSize="@dimen/dimen_8s"
+                android:layout_gravity="center_vertical"
+                android:text="350 AED" />
+
+            <TextView
+                android:id="@+id/category_price_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/slider_price"
+                android:textSize="@dimen/dimen_11s"
+                android:text="300" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

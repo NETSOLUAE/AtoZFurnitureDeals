@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/address_footer"
+        layout="@layout/footer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+
+    <ScrollView
+        android:id="@+id/address_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/address_footer">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_8">
+
+            <EditText
+                android:id="@+id/edit_address_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:paddingTop="@dimen/dimen_6"
+                android:paddingBottom="@dimen/dimen_6"
+                android:paddingStart="@dimen/dimen_4"
+                android:paddingEnd="@dimen/dimen_4"
+                android:textSize="@dimen/dimen_14s"
+                android:inputType="textCapWords"
+                android:imeOptions="actionNext"
+                android:hint="@string/add_your_name_text"
+                android:background="@drawable/address_edittext_background" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dimen_10"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7">
+
+                    <EditText
+                        android:id="@+id/edit_address_floor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/dimen_6"
+                        android:paddingBottom="@dimen/dimen_6"
+                        android:paddingStart="@dimen/dimen_4"
+                        android:paddingEnd="@dimen/dimen_4"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:textSize="@dimen/dimen_14s"
+                        android:hint="@string/add_floor"
+                        android:imeOptions="actionNext"
+                        android:background="@drawable/address_edittext_background_small" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center_vertical" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7">
+
+                    <EditText
+                        android:id="@+id/edit_address_apartment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/dimen_4"
+                        android:paddingEnd="@dimen/dimen_4"
+                        android:background="@drawable/address_edittext_background_small"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:hint="@string/add_apartment"
+                        android:maxLines="1"
+                        android:textSize="@dimen/dimen_14s" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dimen_10"
+                android:paddingBottom="@dimen/dimen_10"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7">
+
+                    <EditText
+                        android:id="@+id/edit_address_building"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/address_edittext_background_small"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:hint="@string/add_building"
+                        android:paddingBottom="@dimen/dimen_6"
+                        android:paddingTop="@dimen/dimen_6"
+                        android:paddingStart="@dimen/dimen_4"
+                        android:paddingEnd="@dimen/dimen_4"
+                        android:textSize="@dimen/dimen_14s" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center_vertical" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7">
+
+                    <EditText
+                        android:id="@+id/edit_address_street_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/dimen_6"
+                        android:paddingBottom="@dimen/dimen_6"
+                        android:paddingStart="@dimen/dimen_4"
+                        android:paddingEnd="@dimen/dimen_4"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:textSize="@dimen/dimen_14s"
+                        android:hint="@string/add_street_no"
+                        android:imeOptions="actionNext"
+                        android:background="@drawable/address_edittext_background_small"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edit_address_country"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/dimen_4"
+                android:paddingEnd="@dimen/dimen_4"
+                android:maxLines="1"
+                android:inputType="text"
+                android:textSize="@dimen/dimen_14s"
+                android:text="@string/countryText"
+                android:focusable="false"
+                android:background="@drawable/address_edittext_background"/>
+
+            <Spinner
+                android:id="@+id/edit_address_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:background="@drawable/custom_spinner_address">
+            </Spinner>
+
+            <Spinner
+                android:id="@+id/edit_address_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:background="@drawable/custom_spinner_address">
+            </Spinner>
+
+            <EditText
+                android:id="@+id/edit_address_landmark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:paddingStart="@dimen/dimen_4"
+                android:paddingEnd="@dimen/dimen_4"
+                android:textSize="@dimen/dimen_14s"
+                android:inputType="textCapWords"
+                android:maxLines="1"
+                android:hint="@string/add_landmark"
+                android:imeOptions="actionNext"
+                android:background="@drawable/address_edittext_background" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dimen_10"
+                android:paddingBottom="@dimen/dimen_10"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7">
+
+                    <EditText
+                        android:id="@+id/edit_address_mobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/dimen_6"
+                        android:paddingBottom="@dimen/dimen_6"
+                        android:paddingStart="@dimen/dimen_4"
+                        android:paddingEnd="@dimen/dimen_4"
+                        android:maxLines="1"
+                        android:inputType="phone"
+                        android:textSize="@dimen/dimen_14s"
+                        android:imeOptions="actionNext"
+                        android:hint="@string/mobileHintReg"
+                        android:drawablePadding="@dimen/dimen_32s"
+                        android:maxLength="10"
+                        android:background="@drawable/address_edittext_background_small"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center_vertical" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7">
+
+                    <EditText
+                        android:id="@+id/edit_address_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/dimen_6"
+                        android:paddingBottom="@dimen/dimen_6"
+                        android:paddingStart="@dimen/dimen_4"
+                        android:paddingEnd="@dimen/dimen_4"
+                        android:maxLines="1"
+                        android:inputType="phone"
+                        android:textSize="@dimen/dimen_14s"
+                        android:hint="@string/mobileHint"
+                        android:imeOptions="actionNext"
+                        android:maxLength="20"
+                        android:background="@drawable/address_edittext_background_small" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dimen_10"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7">
+
+                    <Spinner
+                        android:id="@+id/edit_address_delivery"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/custom_spinner_address_small">
+                    </Spinner>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center_vertical" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7">
+
+                    <Spinner
+                        android:id="@+id/edit_address_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/custom_spinner_address_small">
+                    </Spinner>
+                </LinearLayout>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edit_address_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:paddingTop="@dimen/dimen_6"
+                android:paddingBottom="@dimen/dimen_6"
+                android:paddingStart="@dimen/dimen_4"
+                android:paddingEnd="@dimen/dimen_4"
+                android:textSize="@dimen/dimen_14s"
+                android:hint="@string/add_note"
+                android:inputType="textCapSentences"
+                android:maxLines="1"
+                android:imeOptions="actionDone"
+                android:background="@drawable/address_edittext_background" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="@dimen/dimen_20">
+
+                <Button
+                    android:id="@+id/button_save_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_40"
+                    android:text="@string/button_save_address"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorAccent"
+                    android:background="@drawable/button_add_to_cart"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/transparent_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="#99000000"
+        android:visibility="gone">
+    </LinearLayout>
+
+    <include
+        android:id="@+id/floating_layout"
+        layout="@layout/floating_menu_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
