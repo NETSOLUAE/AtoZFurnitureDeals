@@ -17,16 +17,17 @@ public class Constants {
 
     //Base URL And their end points
     //Production URL
-    public static String BASE_URL = "https://atozfurniture.ae/apisv1/azapi.php?mode=";
-    public static String BASE_URL_PAYMENT = "https://atozfurniture.ae/ajax/atoz_secure_vpc.php";
+//    public static String BASE_URL = "https://atozfurniture.ae/apisv1/azapi.php?mode=";
+//    public static String BASE_URL_PAYMENT = "https://atozfurniture.ae/ajax/atoz_secure_vpc.php";
 
     //Development URL
-//    public static String BASE_URL = "https://furnituredeal.ae/apisv1/azapi.php?mode=";
-//    public static String BASE_URL_PAYMENT = "https://furnituredeal.ae/ajax/atoz_secure_vpc.php";
+    public static String BASE_URL = "https://furnituredeal.ae/apisv1/azapi.php?mode=";
+    public static String BASE_URL_PAYMENT = "https://furnituredeal.ae/ajax/atoz_secure_vpc.php";
 
     public static String END_POINT_LOGIN = "login";
     public static String END_POINT_REGISTER = "register";
     public static String END_POINT_CONFIRM_ACCOUNT = "confirm";
+    public static String END_POINT_RESEND_EMAIL = "resend";
     public static String END_POINT_CATEGORIES = "categories";
     public static String END_POINT_HOME = "home";
     public static String END_POINT_PRODUCTS_ALL = "product";

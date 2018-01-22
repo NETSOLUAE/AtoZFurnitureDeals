@@ -67,8 +67,8 @@ public class SigninActivity extends AppCompatActivity implements AlertAction, Fa
     Helper helper;
     Button signUp;
     Button signIn;
-//    Button facebook;
-//    Button google;
+    Button facebook;
+    Button google;
     Context context;
     EditText email;
     EditText password;
@@ -112,8 +112,8 @@ public class SigninActivity extends AppCompatActivity implements AlertAction, Fa
 
         signUp = (Button) findViewById(R.id.buttonSignUp);
         signIn = (Button) findViewById(R.id.buttonSignIn);
-//        facebook = (Button) findViewById(R.id.buttonFacebook);
-//        google = (Button) findViewById(R.id.buttonGoogle);
+        facebook = (Button) findViewById(R.id.buttonFacebook);
+        google = (Button) findViewById(R.id.buttonGoogle);
         email = (EditText) findViewById(R.id.signin_email);
         password = (EditText) findViewById(R.id.signin_password);
         forgetPassword = (TextView) findViewById(R.id.signin_forget_password);
@@ -152,6 +152,7 @@ public class SigninActivity extends AppCompatActivity implements AlertAction, Fa
                     Toast.makeText(context, context.getString(R.string.all_fields_mandatory), Toast.LENGTH_SHORT).show();
                 } else {
 
+                    editor.putString(Constants.EMAIL, emailText);
                     editor.putString(Constants.PASSWORD, passwordText);
                     editor.apply();
 
@@ -174,24 +175,24 @@ public class SigninActivity extends AppCompatActivity implements AlertAction, Fa
             }
         });
 
-//        facebook.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                loginMode = "FB";
-//                mFbHelper.performSignIn(SigninActivity.this);
-//            }
-//        });
-//
-//        google.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                loginMode = "GOOGLE";
-//                mGoogleApiClient.connect();
-//                Auth.GoogleSignInApi.signOut(mGoogleApiClient);
-//                Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
-//                startActivityForResult(signInIntent, RC_SIGN_IN);
-//            }
-//        });
+        facebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginMode = "FB";
+                mFbHelper.performSignIn(SigninActivity.this);
+            }
+        });
+
+        google.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginMode = "GOOGLE";
+                mGoogleApiClient.connect();
+                Auth.GoogleSignInApi.signOut(mGoogleApiClient);
+                Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+                startActivityForResult(signInIntent, RC_SIGN_IN);
+            }
+        });
 
         setFooter();
     }
@@ -487,21 +488,29 @@ public class SigninActivity extends AppCompatActivity implements AlertAction, Fa
             if (result != null) {
                 String parseUpdate = jsonParser.parseLogin(result.toString());
                 if (is403Error) {
-                    if (loginMode.equalsIgnoreCase("FB")) {
-                        Intent intent = new Intent(SigninActivity.this, RegisterActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                        intent.putExtra("MODE", "FB");
+                    if (parseUpdate.equalsIgnoreCase("Inactive user")) {
+                        Intent intent = new Intent(SigninActivity.this, VerificationActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
-                    } else if (loginMode.equalsIgnoreCase("GOOGLE")) {
-                        Intent intent = new Intent(SigninActivity.this, RegisterActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                        intent.putExtra("MODE", "GOOGLE");
-                        intent.putExtra("personName", personName);
-                        intent.putExtra("emailGoogle", emailGoogle);
-                        intent.putExtra("passwordGoogle", passwordGoogle);
-                        startActivity(intent);
-                    } else {
+                    } else if (parseUpdate.equalsIgnoreCase("Invalid password")) {
                         helper.cancelableAlertDialog("", parseUpdate, 1);
+                    } else {
+                        if (loginMode.equalsIgnoreCase("FB") && parseUpdate.equalsIgnoreCase("Email address not found")) {
+                            Intent intent = new Intent(SigninActivity.this, RegisterActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intent.putExtra("MODE", "FB");
+                            startActivity(intent);
+                        } else if (loginMode.equalsIgnoreCase("GOOGLE") && parseUpdate.equalsIgnoreCase("Email address not found")) {
+                            Intent intent = new Intent(SigninActivity.this, RegisterActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intent.putExtra("MODE", "GOOGLE");
+                            intent.putExtra("personName", personName);
+                            intent.putExtra("emailGoogle", emailGoogle);
+                            intent.putExtra("passwordGoogle", passwordGoogle);
+                            startActivity(intent);
+                        } else {
+                            helper.cancelableAlertDialog("", parseUpdate, 1);
+                        }
                     }
                 } else if (parseUpdate.equalsIgnoreCase("Updated")) {
                     editor.putBoolean(Constants.SESSION, true);

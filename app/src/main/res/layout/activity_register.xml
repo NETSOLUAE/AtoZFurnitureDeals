@@ -82,7 +82,7 @@ android:layout_height="match_parent">
                 android:hint="@string/nameHint"
                 android:textSize="@dimen/dimen_14s"
                 android:imeOptions="actionNext"
-                android:background="@drawable/address_edittext_background_small" />
+                android:background="@drawable/address_edittext_background" />
 
             <EditText
                 android:id="@+id/register_email"
@@ -288,12 +288,12 @@ android:layout_height="match_parent">
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/register_terms"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="@dimen/dimen_20"
-                android:clickable="true"/>
+            <!--<TextView-->
+                <!--android:id="@+id/register_terms"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingTop="@dimen/dimen_20"-->
+                <!--android:clickable="true"/>-->
 
         </LinearLayout>
 

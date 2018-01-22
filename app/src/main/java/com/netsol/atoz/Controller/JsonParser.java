@@ -687,7 +687,7 @@ public class JsonParser {
         return statusString;
     }
 
-    public String parseVerificationResponse(String response) {
+    public String parseResendResponse(String response) {
         String statusString = "";
         try {
             JSONArray verificationResponse = new JSONArray(response);
@@ -697,14 +697,16 @@ public class JsonParser {
                         .getJSONObject(i);
                 String code = verificationObject
                         .getString("code");
-                VerificationActivity.verificationMessage = verificationObject
-                        .getString("error");
                 if (code.equalsIgnoreCase("200")) {
                     String server_time = verificationObject
                             .getString("server_time");
+                    VerificationActivity.verificationMessage = verificationObject
+                            .getString("error");
                     statusString = "Updated";
                 } else {
                     statusString = "NotUpdated";
+                    VerificationActivity.verificationMessage = verificationObject
+                            .getString("error");
                 }
             }
         } catch (JSONException e) {
@@ -731,6 +733,7 @@ public class JsonParser {
                         .getString("code");
                 if (code.equalsIgnoreCase("200")) {
                     SigninActivity.is403Error = false;
+                    VerificationActivity.is403ErrorVerify = false;
                     String userid = loginObject
                             .getString("userid");
                     String server_time = loginObject
@@ -771,6 +774,7 @@ public class JsonParser {
                     }
                 } else if (code.equalsIgnoreCase("403")) {
                     SigninActivity.is403Error = true;
+                    VerificationActivity.is403ErrorVerify = true;
                     String email_error = loginObject
                             .getString("email_error");
                     String pass_error = loginObject
@@ -781,12 +785,14 @@ public class JsonParser {
                         statusString = email_error;
                     }
                 } else {
-                    SigninActivity.is403Error = false;
+                    SigninActivity.is403Error = true;
+                    VerificationActivity.is403ErrorVerify = true;
                     statusString = "NotUpdated";
                 }
             }
         } catch (JSONException e) {
-            SigninActivity.is403Error = false;
+            SigninActivity.is403Error = true;
+            VerificationActivity.is403ErrorVerify = true;
             statusString = "NotUpdated";
             e.printStackTrace();
             Log.v("Exception is " + Log.getStackTraceString(e), statusString, e);

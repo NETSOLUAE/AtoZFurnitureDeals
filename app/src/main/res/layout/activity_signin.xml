@@ -161,23 +161,23 @@
                     android:layout_height="wrap_content"
                     android:gravity="center">
 
-                    <!--<Button-->
-                        <!--android:id="@+id/buttonFacebook"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="@dimen/dimen_40"-->
-                        <!--android:text="@string/button_facebook"-->
-                        <!--android:textAllCaps="false"-->
-                        <!--android:textColor="@color/colorAccent"-->
-                        <!--android:background="@drawable/button_fb"/>-->
+                    <Button
+                        android:id="@+id/buttonFacebook"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dimen_40"
+                        android:text="@string/button_facebook"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorAccent"
+                        android:background="@drawable/button_fb"/>
 
-                    <!--<Button-->
-                        <!--android:id="@+id/buttonGoogle"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="@dimen/dimen_40"-->
-                        <!--android:text="@string/button_google"-->
-                        <!--android:textAllCaps="false"-->
-                        <!--android:textColor="@color/colorAccent"-->
-                        <!--android:background="@drawable/button_google"/>-->
+                    <Button
+                        android:id="@+id/buttonGoogle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dimen_40"
+                        android:text="@string/button_google"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorAccent"
+                        android:background="@drawable/button_google"/>
 
                 </LinearLayout>
 

@@ -42,6 +42,7 @@
     <!--Text Field Hint-->
     <string name="edit_text_email">Email</string>
     <string name="edit_text_verification_code">Enter your Verification Code</string>
+    <string name="edit_text_verification_email">Enter your Email Address</string>
 
     <!--Welcome Text-->
     <string name="welcome_first_text">Pellentesque non dignissim neque. Ut\n porta viverra est, ut dignissim elit\n elementum ut.</string>
@@ -86,7 +87,7 @@
     <string name="termsText">By clicking the Sign up button, you confirm that you accept our</string>
 
     <!--Verification Text-->
-    <string name="verification">Please Enter 6-digit Secret Code sent to your registered Mobile Number for Verification purpose.</string>
+    <string name="verification">Your account has been created but is currently inactive. To activate your account you must visit the link provided in the email</string>
 
     <!--Sliding Text-->
     <string name="home">Home</string>
@@ -257,7 +258,8 @@
     <!--Progress Dialog-->
     <string name="authenticating">Authenticating</string>
     <string name="registering">Registering</string>
-    <string name="verifying">Verifying Secret Code</string>
+    <string name="verifying">Verifying your Account</string>
+    <string name="resending">Resending Email</string>
     <string name="getting_add">Getting Address…</string>
     <string name="getting_order">Getting Order…</string>
     <string name="saving_add">Saving Address…</string>
