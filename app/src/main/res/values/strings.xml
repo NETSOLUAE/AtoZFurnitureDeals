@@ -322,13 +322,22 @@
     <string name="review_vat">VAT / TAX</string>
     <string name="review_grand_total">Grand Total</string>
 
+    <!--1	Facebook	https://www.facebook.com/atozfurnituredeals/-->
+    <!--2	Twitter	        https://twitter.com/AtoZ_Furniture-->
+    <!--3	LinkedIn	https://www.linkedin.com/company/atozfurniture/-->
+    <!--4	Instragam	https://www.instagram.com/atozfurnituredeals/-->
+    <!--5	Google+	        https://plus.google.com/u/0/100611590933068312112-->
+    <!--6	Pinterest	https://www.pinterest.com/atozfurnituretrading/-->
+
     <!--Follow Us Links-->
-    <string name="follow_fb">https://www.facebook.com/A-to-Z-Furniture-187763038630619/</string>
+    <string name="follow_fb">https://www.facebook.com/atozfurnituredeals</string>
     <string name="follow_google">https://plus.google.com/100611590933068312112</string>
-    <string name="follow_linkendin">https://www.linkedin.com/in/a-to-z-furniture-2aa36a156</string>
+    <string name="follow_linkendin">https://www.linkedin.com/company/atozfurniture/</string>
     <string name="follow_twitter">https://twitter.com/AtoZ_Furniture</string>
-    <string name="follow_cam">https://www.instagram.com/atozfurnituretrading/</string>
-    <string name="follow_cam_app">https://www.instagram.com/_u/atozfurnituretrading/</string>
+    <string name="follow_pintrest">https://www.pinterest.com/atozfurnituretrading/</string>
+    <string name="follow_pintrest_app">pinterest://www.pinterest.com/atozfurnituretrading/</string>
+    <string name="follow_cam">https://www.instagram.com/atozfurnituredeals/</string>
+    <string name="follow_cam_app">https://www.instagram.com/_u/atozfurnituredeals/</string>
     <string name="follow_twitter_user_id">949427058979065857</string>
 
     <string name="facebook_app_id">391271714665024</string>

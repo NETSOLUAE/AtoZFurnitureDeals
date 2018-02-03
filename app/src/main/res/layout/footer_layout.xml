@@ -62,7 +62,18 @@
             android:layout_marginTop="@dimen/dimen_4"
             android:layout_marginBottom="@dimen/dimen_4"
             android:layout_marginStart="@dimen/dimen_10"
+            android:layout_marginEnd="@dimen/dimen_10"
             android:background="@drawable/follow_us_google"
+            android:contentDescription="@string/app_name"/>
+
+        <ImageView
+            android:id="@+id/follow_pintrest"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginTop="@dimen/dimen_4"
+            android:layout_marginBottom="@dimen/dimen_4"
+            android:layout_marginStart="@dimen/dimen_10"
+            android:background="@drawable/follow_us_pintrest"
             android:contentDescription="@string/app_name"/>
 
     </LinearLayout>

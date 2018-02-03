@@ -55,6 +55,7 @@ import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 import com.netsol.atoz.Adapter.CategorySearchAdapter;
 import com.netsol.atoz.Adapter.SliderAdapter;
+import com.netsol.atoz.Adapter.SliderProductDetailsAdapter;
 import com.netsol.atoz.Adapter.SpinnerColorAdapter;
 import com.netsol.atoz.Adapter.SpinnerSizeAdapter;
 import com.netsol.atoz.Controller.AsyncServiceCall;
@@ -510,7 +511,7 @@ public class ProductDeatils extends AppCompatActivity implements AlertAction, Ci
         sizeAdapter = new SpinnerSizeAdapter(context, 0, sizeList);
         spinnerSize.setAdapter(sizeAdapter);
 
-        viewPager.setAdapter(new SliderAdapter(context, HashMapForURL));
+        viewPager.setAdapter(new SliderProductDetailsAdapter(context, HashMapForURL));
         indicator.setupWithViewPager(viewPager, true);
 
         Glide.with(context).load(HashMapForURL.get(0))
@@ -586,8 +587,13 @@ public class ProductDeatils extends AppCompatActivity implements AlertAction, Ci
                     cartItem.setProductImage(product.getProductImage());
                 }
                 databaseManager.insertCartDetails(cartItem);
-                makeFlyAnimation(animationImage);
             }
+//                ImageView currentImageView = (ImageView) viewPager.findViewWithTag(viewPager.getCurrentItem());
+//                ImageView currentImageView = (ImageView) findViewById(R.id.slider_image_product);
+//                if (currentImageView.getDrawable() != null) {
+//                    makeFlyAnimation(currentImageView);
+//                }
+            makeFlyAnimation(animationImage);
         }
     }
 
@@ -648,6 +654,7 @@ public class ProductDeatils extends AppCompatActivity implements AlertAction, Ci
         ImageView followLinkedin = (ImageView) findViewById(R.id.follow_linkend);
         ImageView followTwitter = (ImageView) findViewById(R.id.follow_twitter);
         ImageView followCam = (ImageView) findViewById(R.id.follow_cam);
+        ImageView followPin = (ImageView) findViewById(R.id.follow_pintrest);
 
         /* Footer Action
          */
@@ -698,7 +705,7 @@ public class ProductDeatils extends AppCompatActivity implements AlertAction, Ci
         followLinkedin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("linkedin://add/%@" + "a-to-z-furniture-2aa36a156"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("linkedin://add/%@" + "atozfurniture"));
 //                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("linkedin://profile/a-to-z-furniture-2aa36a156"));
                 final PackageManager packageManager = context.getPackageManager();
                 final List<ResolveInfo> list = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
@@ -752,6 +759,23 @@ public class ProductDeatils extends AppCompatActivity implements AlertAction, Ci
                     try {
                         Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(context.getString(R.string.follow_cam)));
                         startActivity(myIntent);
+                    } catch (ActivityNotFoundException e1) {
+                        Toast.makeText(ProductDeatils.this, "No application can handle this request."
+                                + " Please install a webbrowser",  Toast.LENGTH_LONG).show();
+                        e1.printStackTrace();
+                    }
+                }
+            }
+        });
+        followPin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(context.getString(R.string.follow_pintrest_app))));
+                } catch (Exception e) {
+                    try {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(context.getString(R.string.follow_pintrest))));
                     } catch (ActivityNotFoundException e1) {
                         Toast.makeText(ProductDeatils.this, "No application can handle this request."
                                 + " Please install a webbrowser",  Toast.LENGTH_LONG).show();
