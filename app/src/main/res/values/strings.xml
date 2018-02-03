@@ -42,6 +42,7 @@
     <!--Text Field Hint-->
     <string name="edit_text_email">Email</string>
     <string name="edit_text_verification_code">Enter your Verification Code</string>
+    <string name="edit_text_verification_email">Enter your Email Address</string>
 
     <!--Welcome Text-->
     <string name="welcome_first_text">Pellentesque non dignissim neque. Ut\n porta viverra est, ut dignissim elit\n elementum ut.</string>
@@ -86,7 +87,7 @@
     <string name="termsText">By clicking the Sign up button, you confirm that you accept our</string>
 
     <!--Verification Text-->
-    <string name="verification">Please Enter 6-digit Secret Code sent to your registered Mobile Number for Verification purpose.</string>
+    <string name="verification">Your account has been created but is currently inactive. To activate your account you must visit the link provided in the email</string>
 
     <!--Sliding Text-->
     <string name="home">Home</string>
@@ -257,7 +258,8 @@
     <!--Progress Dialog-->
     <string name="authenticating">Authenticating</string>
     <string name="registering">Registering</string>
-    <string name="verifying">Verifying Secret Code</string>
+    <string name="verifying">Verifying your Account</string>
+    <string name="resending">Resending Email</string>
     <string name="getting_add">Getting Address…</string>
     <string name="getting_order">Getting Order…</string>
     <string name="saving_add">Saving Address…</string>
@@ -320,13 +322,22 @@
     <string name="review_vat">VAT / TAX</string>
     <string name="review_grand_total">Grand Total</string>
 
+    <!--1	Facebook	https://www.facebook.com/atozfurnituredeals/-->
+    <!--2	Twitter	        https://twitter.com/AtoZ_Furniture-->
+    <!--3	LinkedIn	https://www.linkedin.com/company/atozfurniture/-->
+    <!--4	Instragam	https://www.instagram.com/atozfurnituredeals/-->
+    <!--5	Google+	        https://plus.google.com/u/0/100611590933068312112-->
+    <!--6	Pinterest	https://www.pinterest.com/atozfurnituretrading/-->
+
     <!--Follow Us Links-->
-    <string name="follow_fb">https://www.facebook.com/A-to-Z-Furniture-187763038630619/</string>
+    <string name="follow_fb">https://www.facebook.com/atozfurnituredeals</string>
     <string name="follow_google">https://plus.google.com/100611590933068312112</string>
-    <string name="follow_linkendin">https://www.linkedin.com/in/a-to-z-furniture-2aa36a156</string>
+    <string name="follow_linkendin">https://www.linkedin.com/company/atozfurniture/</string>
     <string name="follow_twitter">https://twitter.com/AtoZ_Furniture</string>
-    <string name="follow_cam">https://www.instagram.com/atozfurnituretrading/</string>
-    <string name="follow_cam_app">https://www.instagram.com/_u/atozfurnituretrading/</string>
+    <string name="follow_pintrest">https://www.pinterest.com/atozfurnituretrading/</string>
+    <string name="follow_pintrest_app">pinterest://www.pinterest.com/atozfurnituretrading/</string>
+    <string name="follow_cam">https://www.instagram.com/atozfurnituredeals/</string>
+    <string name="follow_cam_app">https://www.instagram.com/_u/atozfurnituredeals/</string>
     <string name="follow_twitter_user_id">949427058979065857</string>
 
     <string name="facebook_app_id">391271714665024</string>

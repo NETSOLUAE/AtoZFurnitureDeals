@@ -75,6 +75,7 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
     String genderText = "";
     boolean isMale = false;
     boolean isShowing = false;
+    boolean isTerms = false;
 
     Helper helper;
     Button signUp;
@@ -87,7 +88,7 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
     EditText password;
     EditText confirmPassword;
     EditText registerCountry;
-    TextView terms;
+//    TextView terms;
     CheckBox checkBox;
     RadioGroup gender;
     JsonParser jsonParser;
@@ -132,7 +133,7 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
         password = (EditText)findViewById(R.id.register_password);
         dobLayout = (LinearLayout) findViewById(R.id.register_dob);
         fullName = (EditText)findViewById(R.id.register_fullName);
-        terms = (TextView)findViewById(R.id.register_terms);
+//        terms = (TextView)findViewById(R.id.register_terms);
         showPassword = (LinearLayout)findViewById(R.id.register_showPassword);
         passwordLayout = (LinearLayout)findViewById(R.id.passwordLayout);
         registerBack = (LinearLayout)findViewById(R.id.register_back);
@@ -148,16 +149,21 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
         mobile.setCompoundDrawablesWithIntrinsicBounds(new TextDrawable(Constants.COUNTRY_CODE, RegisterActivity.this), null, null, null);
 
         SpannableString SpanString = new SpannableString(
-                "By clicking the Sign up button, you confirm that you accept our Terms of Use and Privacy Policy");
+                "I agree to the A to Z Furniture Terms and Conditions and A to Z Furniture Privacy Policy.");
 
         ClickableSpan teremsAndCondition = new ClickableSpan() {
             @Override
             public void onClick(View textView) {
-//                Toast.makeText(context, "Clickable span terms and codition", Toast.LENGTH_SHORT).show();
-                Intent mIntent = new Intent(RegisterActivity.this, TermActivity.class);
-                mIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                mIntent.putExtra("IS_TERMS", "true");
-                startActivity(mIntent);
+                isTerms = true;
+                ArrayList<AboutGroup> aboutGroupArrayList = databaseManager.getAbout();
+                if (aboutGroupArrayList.size() > 0) {
+                    Intent mIntent = new Intent(RegisterActivity.this, TermActivity.class);
+                    mIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    mIntent.putExtra("IS_TERMS", "true");
+                    startActivity(mIntent);
+                } else {
+                    new RegisterActivity.AboutCall().execute(this, "post", "");
+                }
 
             }
         };
@@ -165,25 +171,31 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
         ClickableSpan privacy = new ClickableSpan() {
             @Override
             public void onClick(View textView) {
+                isTerms = false;
 //                Toast.makeText(context, "Clickable span privacy", Toast.LENGTH_SHORT).show();
-                Intent mIntent = new Intent(RegisterActivity.this, TermActivity.class);
-                mIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                mIntent.putExtra("IS_TERMS", "false");
-                startActivity(mIntent);
+                ArrayList<AboutGroup> aboutGroupArrayList = databaseManager.getAbout();
+                if (aboutGroupArrayList.size() > 0) {
+                    Intent mIntent = new Intent(RegisterActivity.this, TermActivity.class);
+                    mIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    mIntent.putExtra("IS_TERMS", "false");
+                    startActivity(mIntent);
+                } else {
+                    new RegisterActivity.AboutCall().execute(this, "post", "");
+                }
 
             }
         };
 
-        SpanString.setSpan(teremsAndCondition, 64, 76, 0);
-        SpanString.setSpan(privacy, 81, 95, 0);
-        SpanString.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.colorPrimary)), 64, 76, 0);
-        SpanString.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.colorPrimary)), 81, 95, 0);
-        SpanString.setSpan(new UnderlineSpan(), 64, 76, 0);
-        SpanString.setSpan(new UnderlineSpan(), 81, 95, 0);
+        SpanString.setSpan(teremsAndCondition, 32, 52, 0);
+        SpanString.setSpan(privacy, 74, 88, 0);
+        SpanString.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.colorPrimary)), 32, 52, 0);
+        SpanString.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.colorPrimary)), 74, 88, 0);
+        SpanString.setSpan(new UnderlineSpan(), 32, 52, 0);
+        SpanString.setSpan(new UnderlineSpan(), 74, 88, 0);
 
-        terms.setMovementMethod(LinkMovementMethod.getInstance());
-        terms.setText(SpanString, TextView.BufferType.SPANNABLE);
-        terms.setSelected(true);
+        checkBox.setMovementMethod(LinkMovementMethod.getInstance());
+        checkBox.setText(SpanString, TextView.BufferType.SPANNABLE);
+        checkBox.setSelected(true);
 
         final Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -279,10 +291,9 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
                     Toast.makeText(getBaseContext(), context.getString(R.string.password_mismatch), Toast.LENGTH_LONG).show();
                 } else if (loginMode.equalsIgnoreCase("SIGN_UP") && (confirmPasswordText.length() < 6)) {
                     Toast.makeText(getBaseContext(), context.getString(R.string.password_error_message), Toast.LENGTH_LONG).show();
+                } else if (!checkBox.isChecked()) {
+                    Toast.makeText(getBaseContext(), context.getString(R.string.terms_error), Toast.LENGTH_LONG).show();
                 }
-//                else if (!checkBox.isChecked()) {
-//                    Toast.makeText(getBaseContext(), context.getString(R.string.terms_error), Toast.LENGTH_LONG).show();
-//                }
                 else {
                     if (isMale) {
                         genderText = "Male";
@@ -460,13 +471,6 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
         });
 
         new RegisterActivity.NationalityCall().execute(this, "post", "");
-
-//        ArrayList<AboutGroup> aboutGroupArrayList = databaseManager.getAbout();
-//        if (aboutGroupArrayList.size() > 0) {
-//            new RegisterActivity.NationalityCall().execute(this, "post", "");
-//        } else {
-//            new RegisterActivity.AboutCall().execute(this, "post", "");
-//        }
     }
 
     @Override
@@ -495,6 +499,7 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
         ImageView followLinkedin = (ImageView) findViewById(R.id.follow_linkend);
         ImageView followTwitter = (ImageView) findViewById(R.id.follow_twitter);
         ImageView followCam = (ImageView) findViewById(R.id.follow_cam);
+        ImageView followPin = (ImageView) findViewById(R.id.follow_pintrest);
 
         /* Footer Action
          */
@@ -545,7 +550,7 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
         followLinkedin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("linkedin://add/%@" + "a-to-z-furniture-2aa36a156"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("linkedin://add/%@" + "atozfurniture"));
 //                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("linkedin://profile/a-to-z-furniture-2aa36a156"));
                 final PackageManager packageManager = context.getPackageManager();
                 final List<ResolveInfo> list = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
@@ -607,6 +612,23 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
                 }
             }
         });
+        followPin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(context.getString(R.string.follow_pintrest_app))));
+                } catch (Exception e) {
+                    try {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(context.getString(R.string.follow_pintrest))));
+                    } catch (ActivityNotFoundException e1) {
+                        Toast.makeText(RegisterActivity.this, "No application can handle this request."
+                                + " Please install a webbrowser",  Toast.LENGTH_LONG).show();
+                        e1.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 
     private class UserRegistrationCall extends AsyncTask<Object, Void, Object> {
@@ -653,7 +675,7 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
                         startActivity(intent);
                     } else {
                         Intent intent = new Intent(RegisterActivity.this, VerificationActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                     }
                 } else {
@@ -671,6 +693,11 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
 
         @Override
         protected void onPreExecute() {
+            progressDialog = ProgressDialog.show(RegisterActivity.this,
+                    RegisterActivity.this.getResources().getString(
+                            R.string.fetching_data),
+                    RegisterActivity.this.getResources().getString(
+                            R.string.please_wait));
             super.onPreExecute();
         }
 
@@ -686,10 +713,18 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
         protected void onPostExecute(Object result) {
             super.onPostExecute(result);
 
+            helper.dismissProgressDialog(progressDialog);
             if (result != null) {
                 String parseUpdate = jsonParser.parseAboutDetails(result.toString());
                 if (parseUpdate.equalsIgnoreCase("Updated")) {
-                    new RegisterActivity.NationalityCall().execute(this, "post", "");
+                    Intent mIntent = new Intent(RegisterActivity.this, TermActivity.class);
+                    mIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    if (isTerms) {
+                        mIntent.putExtra("IS_TERMS", "true");
+                    } else {
+                        mIntent.putExtra("IS_TERMS", "false");
+                    }
+                    startActivity(mIntent);
                 } else {
                     helper.cancelableAlertDialog("", context.getString(R.string.server_busy), 1);
                 }

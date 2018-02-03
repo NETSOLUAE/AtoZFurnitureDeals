@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -286,6 +287,15 @@ public class Helper {
         } catch (PackageManager.NameNotFoundException e) {
             Log.d("facebook api", "exception");
             return facebook_url; //normal web url
+        }
+    }
+
+    public static Intent getOpenFacebookIntent(Context context) {
+        try {
+            context.getPackageManager().getPackageInfo("com.facebook.katana", 0);
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/187763038630619"));
+        } catch (Exception e) {
+            return new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.facebook.com/atozfurnituredeals"));
         }
     }
 

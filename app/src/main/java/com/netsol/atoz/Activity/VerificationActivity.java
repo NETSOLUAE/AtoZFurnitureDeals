@@ -42,17 +42,20 @@ import okhttp3.RequestBody;
 
 public class VerificationActivity extends AppCompatActivity implements AlertAction {
 
+    String email;
     Helper helper;
     Button resend;
     Button verify;
     Context context;
-    EditText verificationCode;
+    TextView verifyText;
+    EditText emailAddress;
     JsonParser jsonParser;
     LinearLayout verifyBack;
     ProgressDialog progressDialog;
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
     WebserviceManager _webserviceManager;
+    public static boolean is403ErrorVerify = false;
     public static String verificationMessage = "";
 
     @Override
@@ -68,50 +71,79 @@ public class VerificationActivity extends AppCompatActivity implements AlertActi
 
         resend = (Button) findViewById(R.id.button_resend);
         verify = (Button) findViewById(R.id.button_verify);
-        verificationCode = (EditText) findViewById(R.id.verification_code);
+        emailAddress = (EditText) findViewById(R.id.verification_code);
+        verifyText = (TextView) findViewById(R.id.verify_text);
         verifyBack = (LinearLayout) findViewById(R.id.verification_back);
-        ImageView followFb = (ImageView) findViewById(R.id.follow_fb);
-        ImageView followGoogle = (ImageView) findViewById(R.id.follow_google);
-        ImageView followLinkedin = (ImageView) findViewById(R.id.follow_linkend);
-        ImageView followTwitter = (ImageView) findViewById(R.id.follow_twitter);
-        ImageView followCam = (ImageView) findViewById(R.id.follow_cam);
         sharedPref = getSharedPreferences(Constants.PREFERENCES_NAME, Context.MODE_PRIVATE);
         editor = sharedPref.edit();
+        email = sharedPref.getString(Constants.EMAIL, "");
+        verifyText.setText(String.format("%s%s%s", context.getString(R.string.verification), " ", email));
 
         resend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                email = emailAddress.getText().toString();
 
+                if (email.equalsIgnoreCase("")) {
+                    Toast.makeText(context, context.getString(R.string.enter_email_error), Toast.LENGTH_SHORT).show();
+                } else if (!Helper.checkEmail(email)) {
+                    Toast.makeText(context, context.getString(R.string.invalid_email), Toast.LENGTH_LONG).show();
+                } else {
+                    new VerificationActivity.ResendCall().execute(this, "post", "");
+                }
             }
         });
 
         verifyBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(VerificationActivity.this, RegisterActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
+                finish();
             }
         });
 
         verify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String mobileNumber = sharedPref.getString(Constants.MOBILE, "");
-                String code = verificationCode.getText().toString();
+                String password = sharedPref.getString(Constants.PASSWORD, "");
 
-                if (code.equalsIgnoreCase("")) {
-                    Toast.makeText(context, context.getString(R.string.verificaton_code_error), Toast.LENGTH_SHORT).show();
+                if (email.equalsIgnoreCase("") || password.equalsIgnoreCase("")) {
+                    Toast.makeText(context, context.getString(R.string.all_fields_mandatory), Toast.LENGTH_SHORT).show();
+                } else if (email.equalsIgnoreCase("")) {
+                    Toast.makeText(context, context.getString(R.string.enter_email_error), Toast.LENGTH_SHORT).show();
+                } else if (!Helper.checkEmail(email)) {
+                    Toast.makeText(context, context.getString(R.string.invalid_email), Toast.LENGTH_LONG).show();
                 } else {
                     RequestBody formBody = new FormBody.Builder()
-                            .add("pin", code)
-                            .add("mobile", mobileNumber)
+                            .add("email", email)
+                            .add("pass", password)
                             .build();
 
-                    new VerificationActivity.VerificationCall().execute(this, "post", formBody);
+                    new VerificationActivity.LoginCall().execute(this, "post", formBody);
                 }
             }
         });
+
+        setFooter();
+    }
+
+    @Override
+    public void onOkClicked() {
+
+    }
+
+    @Override
+    public void onCancelClicked() {
+
+    }
+
+    public void setFooter() {
+        ImageView followFb = (ImageView) findViewById(R.id.follow_fb);
+        ImageView followGoogle = (ImageView) findViewById(R.id.follow_google);
+        ImageView followLinkedin = (ImageView) findViewById(R.id.follow_linkend);
+        ImageView followTwitter = (ImageView) findViewById(R.id.follow_twitter);
+        ImageView followCam = (ImageView) findViewById(R.id.follow_cam);
+        ImageView followPin = (ImageView) findViewById(R.id.follow_pintrest);
+
         /* Footer Action
          */
         followFb.setOnClickListener(new View.OnClickListener() {
@@ -161,7 +193,7 @@ public class VerificationActivity extends AppCompatActivity implements AlertActi
         followLinkedin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("linkedin://add/%@" + "a-to-z-furniture-2aa36a156"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("linkedin://add/%@" + "atozfurniture"));
 //                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("linkedin://profile/a-to-z-furniture-2aa36a156"));
                 final PackageManager packageManager = context.getPackageManager();
                 final List<ResolveInfo> list = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
@@ -223,21 +255,77 @@ public class VerificationActivity extends AppCompatActivity implements AlertActi
                 }
             }
         });
+        followPin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(context.getString(R.string.follow_pintrest_app))));
+                } catch (Exception e) {
+                    try {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(context.getString(R.string.follow_pintrest))));
+                    } catch (ActivityNotFoundException e1) {
+                        Toast.makeText(VerificationActivity.this, "No application can handle this request."
+                                + " Please install a webbrowser",  Toast.LENGTH_LONG).show();
+                        e1.printStackTrace();
+                    }
+                }
+            }
+        });
+
     }
 
-    @Override
-    public void onOkClicked() {
+    private class ResendCall extends AsyncTask<Object, Void, Object> {
 
+        private String TAG = VerificationActivity.ResendCall.class.getSimpleName();
+
+        @Override
+        protected void onPreExecute() {
+            progressDialog = ProgressDialog.show(VerificationActivity.this,
+                    VerificationActivity.this.getResources().getString(
+                            R.string.resending),
+                    VerificationActivity.this.getResources().getString(
+                            R.string.please_wait));
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Object doInBackground(Object... params) {
+            String urlString = Constants.BASE_URL + Constants.END_POINT_RESEND_EMAIL + "&email=" + email;
+//            RequestBody requestParam = (RequestBody) params[2];
+
+            Log.e(TAG, "processing http request in async task");
+            return _webserviceManager.getHttpResponse(urlString, true);
+        }
+
+        @Override
+        protected void onPostExecute(Object result) {
+            super.onPostExecute(result);
+
+            helper.dismissProgressDialog(progressDialog);
+            if (result != null) {
+                String errorMessage = jsonParser.parseResendResponse(result.toString());
+                if (errorMessage.equalsIgnoreCase("Updated")) {
+                    if (!verificationMessage.equalsIgnoreCase("")) {
+                        Toast.makeText(getBaseContext(), verificationMessage, Toast.LENGTH_LONG).show();
+                    }
+//                    editor.putBoolean(Constants.SESSION, true);
+//                    editor.apply();
+//                    Intent intent = new Intent(VerificationActivity.this, SigninActivity.class);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                    startActivity(intent);
+                } else {
+                    helper.cancelableAlertDialog("", verificationMessage, 1);
+                }
+            } else {
+                helper.cancelableAlertDialog("", context.getString(R.string.server_busy), 1);
+            }
+        }
     }
 
-    @Override
-    public void onCancelClicked() {
+    private class LoginCall extends AsyncTask<Object, Void, Object> {
 
-    }
-
-    private class VerificationCall extends AsyncTask<Object, Void, Object> {
-
-        private String TAG = VerificationActivity.VerificationCall.class.getSimpleName();
+        private String TAG = VerificationActivity.LoginCall.class.getSimpleName();
 
         @Override
         protected void onPreExecute() {
@@ -251,7 +339,7 @@ public class VerificationActivity extends AppCompatActivity implements AlertActi
 
         @Override
         protected Object doInBackground(Object... params) {
-            String urlString = Constants.BASE_URL + Constants.END_POINT_CONFIRM_ACCOUNT;
+            String urlString = Constants.BASE_URL + Constants.END_POINT_LOGIN;
             RequestBody requestParam = (RequestBody) params[2];
 
             Log.e(TAG, "processing http request in async task");
@@ -264,22 +352,28 @@ public class VerificationActivity extends AppCompatActivity implements AlertActi
 
             helper.dismissProgressDialog(progressDialog);
             if (result != null) {
-                String errorMessage = jsonParser.parseVerificationResponse(result.toString());
-                if (errorMessage.equalsIgnoreCase("Updated")) {
-                    if (!verificationMessage.equalsIgnoreCase("")) {
-                        Toast.makeText(getBaseContext(), verificationMessage, Toast.LENGTH_LONG).show();
-                    }
+                String parseUpdate = jsonParser.parseLogin(result.toString());
+                if (!is403ErrorVerify) {
                     editor.putBoolean(Constants.SESSION, true);
                     editor.apply();
-                    Intent intent = new Intent(VerificationActivity.this, SigninActivity.class);
+                    Intent intent = new Intent(VerificationActivity.this, HomeActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
+                } else if (parseUpdate.equalsIgnoreCase("Updated")) {
+                    editor.putBoolean(Constants.SESSION, true);
+                    editor.apply();
+                    Intent intent = new Intent(VerificationActivity.this, HomeActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                } else if (parseUpdate.equalsIgnoreCase("Inactive user")) {
+                    helper.cancelableAlertDialog("", parseUpdate, 1);
                 } else {
-                    helper.cancelableAlertDialog("", verificationMessage, 1);
+                    helper.cancelableAlertDialog("", context.getString(R.string.server_busy), 1);
                 }
             } else {
                 helper.cancelableAlertDialog("", context.getString(R.string.server_busy), 1);
             }
         }
     }
+
 }

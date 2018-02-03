@@ -76,6 +76,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/verify_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/dimen_15"
@@ -95,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/dimen_20"
-            android:hint="@string/edit_text_verification_code"
+            android:hint="@string/edit_text_verification_email"
             android:paddingStart="@dimen/dimen_4"
             android:paddingEnd="@dimen/dimen_4"
             android:ems="10"

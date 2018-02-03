@@ -70,6 +70,7 @@ public class WelcomeActivity extends AppCompatActivity implements AlertAction {
         ImageView followLinkedin = (ImageView) findViewById(R.id.follow_linkend);
         ImageView followTwitter = (ImageView) findViewById(R.id.follow_twitter);
         ImageView followCam = (ImageView) findViewById(R.id.follow_cam);
+        ImageView followPin = (ImageView) findViewById(R.id.follow_pintrest);
         sharedPref = getSharedPreferences(Constants.PREFERENCES_NAME, Context.MODE_PRIVATE);
         editor = sharedPref.edit();
 
@@ -121,10 +122,11 @@ public class WelcomeActivity extends AppCompatActivity implements AlertAction {
         followFb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 try {
                     String socailLink=context.getString(R.string.follow_fb);
                     Intent intent = new Intent(Intent.ACTION_VIEW);
-                    String facebookUrl = helper.getFacebookUrl(WelcomeActivity.this, socailLink);
+                    String facebookUrl = Helper.getFacebookUrl(WelcomeActivity.this, socailLink);
                     if (facebookUrl == null || facebookUrl.length() == 0) {
                         Log.d("facebook Url", " is coming as " + facebookUrl);
                         return;
@@ -165,7 +167,7 @@ public class WelcomeActivity extends AppCompatActivity implements AlertAction {
         followLinkedin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("linkedin://add/%@" + "a-to-z-furniture-2aa36a156"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("linkedin://add/%@" + "atozfurniture"));
 //                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("linkedin://profile/a-to-z-furniture-2aa36a156"));
                 final PackageManager packageManager = context.getPackageManager();
                 final List<ResolveInfo> list = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
@@ -219,6 +221,23 @@ public class WelcomeActivity extends AppCompatActivity implements AlertAction {
                     try {
                         Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(context.getString(R.string.follow_cam)));
                         startActivity(myIntent);
+                    } catch (ActivityNotFoundException e1) {
+                        Toast.makeText(WelcomeActivity.this, "No application can handle this request."
+                                + " Please install a webbrowser",  Toast.LENGTH_LONG).show();
+                        e1.printStackTrace();
+                    }
+                }
+            }
+        });
+        followPin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(context.getString(R.string.follow_pintrest_app))));
+                } catch (Exception e) {
+                    try {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(context.getString(R.string.follow_pintrest))));
                     } catch (ActivityNotFoundException e1) {
                         Toast.makeText(WelcomeActivity.this, "No application can handle this request."
                                 + " Please install a webbrowser",  Toast.LENGTH_LONG).show();
